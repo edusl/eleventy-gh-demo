@@ -15,7 +15,7 @@ pagination:
     <img class="tweet__img" src='./img/tweets/{{ item | myFilter }}' alt='' >
     <div class="tweet__options">
       <ul>
-        <li><a aria-label="compartir en whatsapp" href="whatsapp://send?text='+encodeURIComponent(http://localhost:8080/img/tweets/{{ item | myFilter }})"><img src="./img/whatsapp.svg" alt=""></a></li>
+        <li><a aria-label="compartir en whatsapp" href="whatsapp://send?text='+encodeURIComponent(https://edusl.github.io/eleventy-gh-demo/img/tweets/{{ item | myFilter }})"><img src="./img/whatsapp.svg" alt=""></a></li>
         <li><a aria-label="enlace directo al tuit" href="{{ item }}">{{ tweets.items }}</a></li>
       </ul>
     </div>
