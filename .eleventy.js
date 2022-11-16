@@ -8,6 +8,11 @@ module.exports = function (eleventyConfig) {
     return moment(date).toISOString();
   });
 
+  eleventyConfig.addFilter("myFilter", function(value) {
+    //checkImage(value.replace('https://twitter.com/','snap-tweet-').replace('/status/','-') + '-es.png');
+    return value.replace('https://twitter.com/','snap-tweet-').replace('/status/','-') + '-es.png';
+  });
+
   eleventyConfig.addFilter('dateReadable', date => {
     return moment(date).utc().format('LL'); // E.g. May 31, 2019
   });
@@ -16,6 +21,8 @@ module.exports = function (eleventyConfig) {
 
   // Folders to copy to output folder
   eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("img");
+
 };
 
 function extractExcerpt(article) {

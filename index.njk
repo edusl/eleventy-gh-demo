@@ -1,23 +1,37 @@
 ---
 layout: base-layout.njk
+data: tweets
 pagination:
-  data: collections.post
+  data: tweets
   size: 10
+  alias: tweet
   reverse: true
-  alias: posts
+  # addAllPagesToCollections: true
 ---
-{% for post in posts %}
-  <article>
-    <h1>Prueba</h1>
-    <h1>
-      <a href="{{ post.url | url }}">{{ post.data.title }}</a>
-    </h1>
 
-    <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+<ul class="tweets">
+{%- for item in pagination.items %}
+  <li class="tweet">
+    <img class="tweet__img" src='/img/tweets/{{ item | myFilter }}' alt='' >
+    <div class="tweet__options">
+      <ul>
+        <li><a aria-label="compartir en whatsapp" href="whatsapp://send?text='+encodeURIComponent(http://localhost:8080/img/tweets/{{ item | myFilter }})"><img src="/img/whatsapp.svg" alt=""></a></li>
+        <li><a aria-label="enlace directo al tuit" href="{{ item }}">{{ tweets.items }}</a></li>
+      </ul>
+    </div>
+  </li>
+{% endfor -%}
+</ul>
 
-    {% excerpt post %}
-
-    <a href="{{ post.url | url }}">Read more</a>
-
-  </article>
-{% endfor %}
+<nav class="pagination" aria-labelledby="pagination">
+  <h2 class="hide" id="pagination">Paginación</h2>
+  <ol class="pagination__list">
+    {% if page.url != pagination.href.first %}<li class="pagination__item arrows"><a href="{{ pagination.href.first }}">Inicio</a></li>{% endif %}
+    {% if pagination.href.previous %}<li class="pagination__item arrows"><a href="{{ pagination.href.previous }}">Anterior</a></li>{% endif %}
+{%- for pageEntry in pagination.pages %}
+    <li class="pagination__item"><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}><span class="hide">Page</span> {{ loop.index }}</a></li>
+{%- endfor %}
+    {% if pagination.href.next %}<li class="pagination__item arrows"><a href="{{ pagination.href.next }}">Siguiente</a></li>{% endif %}
+    {% if page.url != pagination.href.last %}<li class="pagination__item arrows"><a href="{{ pagination.href.last }}">Final</a></li>{% endif %}
+  </ol>
+</nav>
