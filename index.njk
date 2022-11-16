@@ -14,11 +14,12 @@ eleventyNavigation:
 <ul class="tweets">
 {%- for item in pagination.items %}
   <li class="tweet">
-    <img class="tweet__img" src='{{ item | myFilter }}' alt='' >
+    <img class="tweet__img" src='https://edusl.github.io/eleventy-gh-demo/{{ item | myFilter | url }}' alt='' >
     <div class="tweet__options">
       <ul>
         <li><a aria-label="compartir en whatsapp" href="whatsapp://send?text='+encodeURIComponent(https://edusl.github.io/eleventy-gh-demo/img/tweets/{{ item | myFilter }})'"><img src="./img/whatsapp.svg" alt=""></a></li>
-        <li><a aria-label="enlace directo al tuit" href="{{ item }}">{{ tweets.items }}</a></li>
+        <li><a aria-label="enlace directo al tuit" target="_blank" href="{{ item }}">{{ item }}</a></li>
+        <li><a aria-label="descargar tuit" href="https://edusl.github.io/eleventy-gh-demo/{{ item | myFilter }}" download>Descargar</a></li>
       </ul>
     </div>
   </li>
