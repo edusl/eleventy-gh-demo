@@ -12,7 +12,7 @@ pagination:
 <ul class="tweets">
 {%- for item in pagination.items %}
   <li class="tweet">
-    <img class="tweet__img" src='./img/tweets/{{ item | myFilter }}' alt='' >
+    <img class="tweet__img" src='/img/tweets/{{ item | myFilter | url }}' alt='' >
     <div class="tweet__options">
       <ul>
         <li><a aria-label="compartir en whatsapp" href="whatsapp://send?text='+encodeURIComponent(https://edusl.github.io/eleventy-gh-demo/img/tweets/{{ item | myFilter }})"><img src="./img/whatsapp.svg" alt=""></a></li>
