@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +10,21 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700|Roboto&display=fallback" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <a href="/eleventy-gh-demo/" class="link--home">My Blog</a>
-    <a href="/eleventy-gh-demo/About" class="link--about">About</a>
+  <header class="header" id="header">
+    <div class="header__container">
+      <div class="header__left">
+        <img class="header__logo" src="/img/tuitazo.svg" alt="">
+        <span class="header__title">
+          <a href="/eleventy-gh-demo/">Tuitazos.com</a>
+          <h1>Recopilación de los mejores tuits de twitter.</h1>
+        </span>
+      </div>
+
+
+    </div>
   </header>
-<main>
-  <article>
+  <main class="main tmpl-home">
+    <article>
   <h1>How To Get Rich Quick</h1>
   <time datetime="2019-06-01T00:00:00.000Z">June 1, 2019</time>
   <!-- Excerpt Start -->
@@ -24,7 +34,11 @@
 <p>We do not accept any liability for any loss or damage.</p>
 
 </article>
-</main>
-<footer>&copy; My Blog</footer>
+  </main>
+
+  <footer>
+    <p>tuitazos.com 2022</p>
+    <p>@tuitazoscom | tuitazoscom@gmail.com</p>
+  </footer>
 </body>
 </html>
