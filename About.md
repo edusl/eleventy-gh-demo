@@ -1,5 +1,8 @@
 --- 
 layout: base-layout.njk 
+eleventyNavigation:
+  key: About
+  order: 2
 --- 
 # About this blog 
   

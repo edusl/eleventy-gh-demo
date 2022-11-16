@@ -6,16 +6,18 @@ pagination:
   size: 10
   alias: tweet
   reverse: true
-  # addAllPagesToCollections: true
+eleventyNavigation:
+  key: Home
+  order: 1  
 ---
 
 <ul class="tweets">
 {%- for item in pagination.items %}
   <li class="tweet">
-    <img class="tweet__img" src='/img/tweets/{{ item | myFilter | url }}' alt='' >
+    <img class="tweet__img" src='{{ item | myFilter }}' alt='' >
     <div class="tweet__options">
       <ul>
-        <li><a aria-label="compartir en whatsapp" href="whatsapp://send?text='+encodeURIComponent(https://edusl.github.io/eleventy-gh-demo/img/tweets/{{ item | myFilter }})"><img src="./img/whatsapp.svg" alt=""></a></li>
+        <li><a aria-label="compartir en whatsapp" href="whatsapp://send?text='+encodeURIComponent(https://edusl.github.io/eleventy-gh-demo/img/tweets/{{ item | myFilter }})'"><img src="./img/whatsapp.svg" alt=""></a></li>
         <li><a aria-label="enlace directo al tuit" href="{{ item }}">{{ tweets.items }}</a></li>
       </ul>
     </div>
@@ -35,3 +37,4 @@ pagination:
     {% if page.url != pagination.href.last %}<li class="pagination__item arrows"><a href="{{ pagination.href.last | url }}">Final</a></li>{% endif %}
   </ol>
 </nav>
+

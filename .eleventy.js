@@ -1,5 +1,7 @@
 const moment = require('moment');
 
+const pluginNavigation = require("@11ty/eleventy-navigation");
+
 moment.locale('en');
 
 module.exports = function (eleventyConfig) {
@@ -10,7 +12,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("myFilter", function(value) {
     //checkImage(value.replace('https://twitter.com/','snap-tweet-').replace('/status/','-') + '-es.png');
-    return value.replace('https://twitter.com/','snap-tweet-').replace('/status/','-') + '-es.png';
+    return value.replace('https://twitter.com/','/img/tweets/snap-tweet-').replace('/status/','-') + '-es.png';
   });
 
   eleventyConfig.addFilter('dateReadable', date => {
@@ -18,6 +20,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   // Folders to copy to output folder
   eleventyConfig.addPassthroughCopy("css");
